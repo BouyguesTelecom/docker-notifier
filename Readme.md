@@ -30,7 +30,7 @@ docker run -e WEBHOOK_URL=<webhook_url> \
 docker run -e SMTP_HOST=<smtp_host> \
            -e NOTIFICATION_TYPE=Mail \
            -e MAIL_FROM=foo@bar.com \
-           -e MAIL_TO=foo2@bar2.com \
+           -e MAIL_TO=foo2@bar2.com,separated@comma.com \
            -e MESSAGE_TITLE=Title \
            -e MESSAGE_CONTENT=Content \
            -it bouyguestelecom/docker-notifier 
