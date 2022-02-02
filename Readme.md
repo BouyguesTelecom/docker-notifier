@@ -1,4 +1,4 @@
-# Docker teams notifier
+# Docker notifier
 
 This is a very basic Docker image that sends Microsoft Teams notification 
 
