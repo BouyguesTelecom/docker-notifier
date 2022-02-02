@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: microsoft-teams-notification
+spec:
+  template:
+    spec:
+      containers:
+      - name: microsoft-teams-notification
+        image: bouyguestelecom/teams-notifier
+        env:
+         - name: WEBHOOK_URL
+           value: <webhook_url>
+         - name: MESSAGE_TITLE
+           value: Message title
+         - name: MESSAGE_CONTENT
+           value: Message sent from kubernetes
+      restartPolicy: Never
