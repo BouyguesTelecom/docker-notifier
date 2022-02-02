@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mail-notification
+spec:
+  template:
+    spec:
+      containers:
+      - name: mail-notification
+        image: bouyguestelecom/docker-notifier
+        env:
+         - name: NOTIFICATION_TYPE
+           value: Mail
+         - name: SMTP_HOST
+           value: <smtp_host>
+         - name: MAIL_FROM
+           value: <mail_from>
+         - name: MAIL_TO
+           value: <mail_to>
+         - name: MESSAGE_TITLE
+           value: Message title
+         - name: MESSAGE_CONTENT
+           value: Message sent from kubernetes
+      restartPolicy: Never

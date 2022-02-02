@@ -27,5 +27,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: bouyguestelecom/teams-notifier:${{ steps.get_version.outputs.VERSION }},bouyguestelecom/teams-notifier:latest
+          tags: bouyguestelecom/docker-notifier:${{ steps.get_version.outputs.VERSION }},bouyguestelecom/docker-notifier:latest
           platforms: linux/amd64,linux/arm64

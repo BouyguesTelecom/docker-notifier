@@ -7,8 +7,10 @@ spec:
     spec:
       containers:
       - name: microsoft-teams-notification
-        image: bouyguestelecom/teams-notifier
+        image: bouyguestelecom/docker-notifier
         env:
+         - name: NOTIFICATION_TYPE
+           value: Teams
          - name: WEBHOOK_URL
            value: <webhook_url>
          - name: MESSAGE_TITLE
