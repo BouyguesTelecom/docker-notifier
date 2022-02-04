@@ -12,7 +12,10 @@ class TeamsNotifier:
             print("WEBHOOK_URL environment variable is not set")
             sys.exit(1)
 
-        myTeamsMessage = pymsteams.connectorcard(os.environ.get("WEBHOOK_URL"))
+        if os.environ.get("HTTPS_PROXY") is not None:
+            myTeamsMessage = pymsteams.connectorcard(os.environ.get("WEBHOOK_URL"), http_proxy=os.environ.get("HTTP_PROXY"), https_proxy=os.environ.get("HTTPS_PROXY"))
+        else:
+            myTeamsMessage = pymsteams.connectorcard()
 
         if title is not None:
             myTeamsMessage.title(title)
