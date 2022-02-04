@@ -15,7 +15,7 @@ class TeamsNotifier:
         if os.environ.get("HTTPS_PROXY") is not None:
             myTeamsMessage = pymsteams.connectorcard(os.environ.get("WEBHOOK_URL"), http_proxy=os.environ.get("HTTP_PROXY"), https_proxy=os.environ.get("HTTPS_PROXY"))
         else:
-            myTeamsMessage = pymsteams.connectorcard()
+            myTeamsMessage = pymsteams.connectorcard(os.environ.get("WEBHOOK_URL"))
 
         if title is not None:
             myTeamsMessage.title(title)
