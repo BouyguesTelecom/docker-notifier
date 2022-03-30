@@ -3,7 +3,8 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-import html2text
+def html_to_text(html):
+  return re.sub('<[^<]+?>', '', html)
 
 class MailNotifier:
     def notification_type(self):
@@ -20,7 +21,7 @@ class MailNotifier:
             msg['From'] = mail_from
             msg['To'] = rcpt_to
 
-            text = html2text.html2text(message)
+            text = html_to_text(message)
             html = message
 
             part1 = MIMEText(text, 'plain')
